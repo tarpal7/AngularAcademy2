@@ -1,0 +1,18 @@
+<p>
+  gallery works!
+
+
+</p>
+<div class="container">
+  <app-gallery-item
+    *ngFor="let item of items"
+    [item]='item'
+    (onChanged)="onChanged($event)"
+
+  >
+
+  </app-gallery-item>
+
+
+
+</div>
