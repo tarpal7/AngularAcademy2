@@ -1,18 +1,9 @@
-<p>
-  gallery works!
-
-
-</p>
 <div class="mycontainer">
   <app-gallery-item
     *ngFor="let item of items"
     [item]='item'
-    (onChanged)="onChanged($event)"
-
+    (onChanged) = "onChanged($event)"
   >
-
   </app-gallery-item>
-
-
-
+  <app-galery-form (messageEvent)="receiveMessage($event)" > </app-galery-form>
 </div>

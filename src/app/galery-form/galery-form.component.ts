@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({
   selector: 'app-galery-form',
@@ -6,10 +6,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./galery-form.component.css']
 })
 export class GaleryFormComponent {
+ objadd: object;
 
-  fieldsForm = ['field1', 'field2' ];
-  submitted = false;
-  onSubmit() { this.submitted = true; }
-  get diagnostic() { return JSON.stringify(this.fieldsForm); }
+ myValue: string;
+valueTitle: string;
+  isRequired = true;
+
+private curid;
+  // @Output() clickChange = new EventEmitter<string>();
+
+
+  @Output() messageEvent = new EventEmitter<object>();
+  sendMessage() {
+
+    console.log(this.myValue);
+    console.log(this.valueTitle);
+    this.curid = (new Date()).getTime();
+    this.objadd =  {
+      id: this.curid,
+      title: this.valueTitle,
+      url: "https://placekitten.com/200/204",
+       }
+    this.messageEvent.emit(this.objadd);
+
+
+
+  }
+
+
+
+  // var re = new RegExp("^(http|https)://", "i");
+  // var str = "My String";
+  // var match = re.test(str);dhtvtyyjq
+
+
 
 }

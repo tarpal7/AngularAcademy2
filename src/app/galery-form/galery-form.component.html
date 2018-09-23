@@ -1,20 +1,31 @@
-<p>
-  galery-form works!
-</p>
+
 <div class="container">
-  <h1>Gallery Form</h1>
-  <form>
+  <h3>Adding a picture!</h3>
+  <form #myForm="ngForm" (ngSubmit)="sendMessage()">
     <div class="form-group">
-      <label for="name">Link</label>
-      <input type="text" class="form-control" id="name" required>
+      <label for="link">Link</label>
+      <input type="text" class="form-control" id="link" required [(ngModel)]="myValue"
+             name="myValue"
+             #myValueModel="ngModel"
+             [required]="isRequired">
     </div>
 
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title">
+      <input type="text" class="form-control" id="title" required [(ngModel)]="valueTitle"
+             name="myValue"
+             #myValueModel="ngModel"
+             [required]="isRequired">
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div *ngIf="myValueModel.dirty && myValueModel.errors?.required" style="color: red">
+      Error link
+    </div>
 
+    <div>
+      <button [disabled]="myForm.invalid">Add</button>
+    </div>
   </form>
 </div>
+
+

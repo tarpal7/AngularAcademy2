@@ -8,11 +8,3 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-angular-project';
 }
-export class Picture {
-
-  constructor(
-    public link: string,
-    public title: string
-  ) {  }
-
-}
