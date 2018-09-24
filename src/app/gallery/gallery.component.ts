@@ -1,21 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
+
+
 export class GalleryComponent {
 
-  onChanged(increased: number) {
-
-    for (let i = 0; i < this.items.length; i++) {
-      if (increased == this.items[i].id) {
-        this.items.splice(i, 1)
-      }
-    }
-
-  }
+ // message: string;
 
   items = [
     {
@@ -69,6 +63,24 @@ export class GalleryComponent {
       url: "https://placekitten.com/200/200",
     }
   ];
+
+  onChanged(increased: number) {
+    for (let i = 0; i < this.items.length; i++) {
+      if (increased === this.items[i].id) {
+        this.items.splice(i, 1);
+      }
+    }
+  }
+
+
+  receiveMessage($event) {
+ //   this.message = $event;
+ //   console.log($event);
+    this.items.unshift($event);
+
+  }
+
+
 
 
 }
