@@ -76,7 +76,7 @@ export class GalleryComponent {
   receiveMessage($event) {
  //   this.message = $event;
  //   console.log($event);
-    this.items.push($event);
+    this.items.unshift($event);
 
   }
 
