@@ -1,4 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {GalleryService} from "../gallery.service";
 
 @Component({
   selector: 'app-gallery-item',
@@ -9,9 +10,10 @@ export class GalleryItemComponent {
   @Input() item: object;
 
   @Output() onChanged = new EventEmitter<number>();
+  constructor (private GalleryService: GalleryService){};
 
   change(id: any) {
-    this.onChanged.emit(id);
+    this.GalleryService.onChanged(id);
   }
 
 }

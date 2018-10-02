@@ -1,4 +1,5 @@
 import {Component, Output, EventEmitter} from '@angular/core';
+import {GalleryService} from "../gallery.service";
 
 @Component({
   selector: 'app-galery-form',
@@ -12,7 +13,7 @@ export class GaleryFormComponent {
   valueTitle: string;
   isRequired = true;
   private curid;
-
+  constructor (private GalleryService: GalleryService){};
   @Output() messageEvent = new EventEmitter<object>();
 
   sendMessage() {
@@ -25,7 +26,9 @@ export class GaleryFormComponent {
       url: this.myValue,
     }
     this.messageEvent.emit(this.objadd);
-
+    this.GalleryService.receiveMessage(this.objadd);
   }
+
+
 
 }
