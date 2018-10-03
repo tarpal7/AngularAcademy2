@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import {GalleryService} from "../gallery.service";
+import {GalleryService} from '../gallery.service';
 
 @Component({
   selector: 'app-galery-form',

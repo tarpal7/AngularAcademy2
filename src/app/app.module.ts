@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryItemComponent } from './gallery-item/gallery-item.component';
 import { GaleryFormComponent } from './galery-form/galery-form.component';
-import {GalleryService} from "./gallery.service";
+import {GalleryService} from './gallery.service';
 
 @NgModule({
   declarations: [
@@ -23,4 +23,4 @@ import {GalleryService} from "./gallery.service";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-}
+

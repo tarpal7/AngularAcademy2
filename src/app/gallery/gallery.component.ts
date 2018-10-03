@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {GalleryService} from "../gallery.service";
+import {GalleryService} from '../gallery.service';
 
 @Component({
   selector: 'app-gallery',
@@ -9,27 +9,23 @@ import {GalleryService} from "../gallery.service";
 
 
 export class GalleryComponent {
+  key: string = 'gallery';
+  constructor(private GalleryService: GalleryService) {
 
-  constructor (private GalleryService: GalleryService){};
- // message: string;
-
- 
-
-  onChanged(increased: number) {
-    for (let i = 0; i < this.items.length; i++) {
-      if (increased === this.items[i].id) {
-        this.items.splice(i, 1);
-      }
+ console.log(GalleryService.getFromLS(GalleryService.keyStorage).length);
+// console.log(GalleryService.getFromLS(this.key))
+    if (GalleryService.getFromLS(GalleryService.keyStorage).length) {
+      GalleryService.items = GalleryService.getFromLS(this.key);
+    } else {
+      GalleryService.items = GalleryService.itemsStart;
+      GalleryService.saveInLocalSorage(GalleryService.items, this.key);
     }
-  }
-
-  receiveMessage($event) {
- //   this.message = $event;
- //   console.log($event);
-    this.items.unshift($event);
 
   }
 
+
+
+// message: string;
 
 
 }
