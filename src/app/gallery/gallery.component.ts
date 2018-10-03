@@ -10,22 +10,14 @@ import {GalleryService} from '../gallery.service';
 
 export class GalleryComponent {
   key: string = 'gallery';
+
   constructor(private GalleryService: GalleryService) {
 
- console.log(GalleryService.getFromLS(GalleryService.keyStorage).length);
-// console.log(GalleryService.getFromLS(this.key))
     if (GalleryService.getFromLS(GalleryService.keyStorage).length) {
       GalleryService.items = GalleryService.getFromLS(this.key);
     } else {
       GalleryService.items = GalleryService.itemsStart;
       GalleryService.saveInLocalSorage(GalleryService.items, this.key);
     }
-
   }
-
-
-
-// message: string;
-
-
 }

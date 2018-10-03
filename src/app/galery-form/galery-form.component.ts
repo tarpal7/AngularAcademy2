@@ -13,7 +13,10 @@ export class GaleryFormComponent {
   valueTitle: string;
   isRequired = true;
   private curid;
-  constructor (private GalleryService: GalleryService){};
+
+  constructor(private GalleryService: GalleryService) {
+  };
+
   @Output() messageEvent = new EventEmitter<object>();
 
   sendMessage() {
@@ -28,7 +31,6 @@ export class GaleryFormComponent {
     this.messageEvent.emit(this.objadd);
     this.GalleryService.receiveMessage(this.objadd);
   }
-
 
 
 }

@@ -10,7 +10,9 @@ export class GalleryItemComponent {
   @Input() item: object;
 
   @Output() onChanged = new EventEmitter<number>();
-  constructor (private GalleryService: GalleryService){};
+
+  constructor(private GalleryService: GalleryService) {
+  };
 
   change(id: number) {
     this.GalleryService.onChanged(id);
