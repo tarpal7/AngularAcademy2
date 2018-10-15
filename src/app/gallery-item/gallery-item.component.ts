@@ -23,4 +23,10 @@ export class GalleryItemComponent {
     this.GalleryService.deleteFromServer(obj);
 
   }
+
+  showItem(obj){
+    console.log(obj);
+    this.GalleryService.getFromServerItemId(obj);
+  }
+
 }

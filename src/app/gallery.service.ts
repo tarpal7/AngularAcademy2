@@ -136,4 +136,13 @@ export class GalleryService {
     return this.http.delete(`${this.serverUrl}/${obj.id}` );
   }
 
+
+  getFromServerItemId(id){
+
+    return this.http.get<any>(`${this.serverUrl}/${id}` ).subscribe(res => res.json
+      );
+  }
+
+
+
 }

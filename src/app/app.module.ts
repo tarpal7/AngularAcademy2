@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormPageComponent } from './form-page/form-page.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpModule} from '@angular/http';
+import { ItemPageComponent } from './item-page/item-page.component';
 
 
 
@@ -22,7 +23,8 @@ import {HttpModule} from '@angular/http';
     GalleryComponent,
     GalleryItemComponent,
     GaleryFormComponent,
-    FormPageComponent
+    FormPageComponent,
+    ItemPageComponent
   ],
   imports: [
     BrowserModule,
