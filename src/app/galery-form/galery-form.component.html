@@ -1,6 +1,6 @@
 <div class="containerForm">
   <h3>Adding a picture!</h3>
-  <form #myForm="ngForm" (ngSubmit)="sendMessage(); myForm.reset()">
+  <form #myForm="ngForm" (ngSubmit)="addItem(); myForm.reset()">
 
     <div class="form-group" [class.has-error]="myValueModel.invalid && myValueModel.touched">
       <label for="link" class=" control-label">Link</label>
@@ -30,9 +30,8 @@
       </p>
     </div>
     <div>
-      <button class="button" [disabled]="myForm.invalid">Add</button>
+      <button class="button" [disabled]="myForm.invalid" >Add</button>
     </div>
   </form>
 </div>
-
 

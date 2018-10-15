@@ -1,10 +1,32 @@
 import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
+import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
+
+import {Item} from './item';
+
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class GalleryService {
+
+  private serverUrl = 'http://localhost:3000/gallery';
+
+
+  constructor(private http: HttpClient) {
+    // if (this.getFromLS(this.keyStorage).length) {
+    //   this.items = this.getFromLS(this.key);
+    // } else {
+    //   this.items = this.itemsStart;
+    //   this.saveInLocalSorage(this.items, this.key);
+    // }
+  }
+
+
+  key: string = 'gallery';
   keyStorage: string = 'gallery';
   items = [];
   itemsStart = [
@@ -60,6 +82,9 @@ export class GalleryService {
     }
   ];
 
+//local array
+
+
   onChanged(increased: number) {
     for (let i = 0; i < this.items.length; i++) {
       if (increased === this.items[i].id) {
@@ -81,21 +106,34 @@ export class GalleryService {
 
   }
 
+ //localStorage
+
   saveInLocalSorage(obj, nameObject: string) {
     let sObj: string = JSON.stringify(obj);
     localStorage.setItem(nameObject, sObj);
   }
 
   removeFromLS(nameObject: string) {
-
     localStorage.removeItem(nameObject);
-
   }
 
   getFromLS(nameObject: string) {
     return JSON.parse(localStorage.getItem(nameObject));
-
   }
 
+  //Server
+
+
+  getAllFromServer() {
+    return this.http.get<any[]>(this.serverUrl);
+  }
+
+  addItemToServer(obj) {
+    return this.http.post(this.serverUrl, obj);
+  }
+
+  deleteFromServer(obj: any){
+    return this.http.delete(`${this.serverUrl}/${obj.id}` );
+  }
 
 }

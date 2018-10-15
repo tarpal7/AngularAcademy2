@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {GalleryService} from '../gallery.service';
-
+import {HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -9,15 +9,18 @@ import {GalleryService} from '../gallery.service';
 
 
 export class GalleryComponent {
-  key: string = 'gallery';
+  items =[];
+  constructor(private http: HttpClient, private GalleryService: GalleryService) {
+  }
 
-  constructor(private GalleryService: GalleryService) {
+  ngOnInit() {
 
-    if (GalleryService.getFromLS(GalleryService.keyStorage).length) {
-      GalleryService.items = GalleryService.getFromLS(this.key);
-    } else {
-      GalleryService.items = GalleryService.itemsStart;
-      GalleryService.saveInLocalSorage(GalleryService.items, this.key);
-    }
+    //localStorage
+    //  this.items = this.GalleryService.items;
+
+   this.GalleryService.getAllFromServer().subscribe(items => {
+    console.log(items);
+    this.items = items;
+    });
   }
 }

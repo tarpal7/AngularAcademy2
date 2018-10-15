@@ -18,4 +18,9 @@ export class GalleryItemComponent {
     this.GalleryService.onChanged(id);
   }
 
+  deleteItem(obj) {
+    console.log(obj);
+    this.GalleryService.deleteFromServer(obj);
+
+  }
 }

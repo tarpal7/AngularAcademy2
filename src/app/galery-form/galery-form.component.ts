@@ -15,13 +15,13 @@ export class GaleryFormComponent {
   private curid;
 
   constructor(private GalleryService: GalleryService) {
-  };
+  }
 
   @Output() messageEvent = new EventEmitter<object>();
 
   sendMessage() {
-    console.log(this.myValue);
-    console.log(this.valueTitle);
+   // console.log(this.myValue);
+   // console.log(this.valueTitle);
     this.curid = (new Date()).getTime();
     this.objadd = {
       id: this.curid,
@@ -32,5 +32,19 @@ export class GaleryFormComponent {
     this.GalleryService.receiveMessage(this.objadd);
   }
 
+  addItem() {
+    this.curid = (new Date()).getTime();
+    this.objadd = {
+   //   id: this.curid,
+      title: this.valueTitle,
+      url: this.myValue,
+    };
+
+    this.GalleryService.addItemToServer(this.objadd).subscribe((json) => {
+      console.log(json);
+    });
+
+
+  }
 
 }

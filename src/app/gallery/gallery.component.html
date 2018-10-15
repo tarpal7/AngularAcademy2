@@ -1,10 +1,10 @@
 <div class="mycontainer">
   <app-gallery-item
-    *ngFor="let item of GalleryService.items"
+    *ngFor="let item of this.items"
     [item]='item'
     (onChanged) = "onChanged($event)"
   >
   </app-gallery-item>
 </div>
 
-<app-galery-form  > </app-galery-form>
+
