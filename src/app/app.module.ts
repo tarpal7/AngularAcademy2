@@ -12,6 +12,9 @@ import { FormPageComponent } from './form-page/form-page.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpModule} from '@angular/http';
 import { ItemPageComponent } from './item-page/item-page.component';
+import {AuthService} from "./auth.service";
+import {AuthGuard} from "./auth-guard.service";
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 
@@ -24,7 +27,8 @@ import { ItemPageComponent } from './item-page/item-page.component';
     GalleryItemComponent,
     GaleryFormComponent,
     FormPageComponent,
-    ItemPageComponent
+    ItemPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { ItemPageComponent } from './item-page/item-page.component';
     HttpModule,
     HttpClientModule
   ],
-  providers: [GalleryService],
+  providers: [GalleryService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
