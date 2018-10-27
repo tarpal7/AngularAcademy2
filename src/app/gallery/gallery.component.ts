@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {GalleryService} from '../gallery.service';
 import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -9,7 +10,8 @@ import {HttpClient} from '@angular/common/http';
 
 
 export class GalleryComponent {
-  items =[];
+  items = [];
+
   constructor(private http: HttpClient, private GalleryService: GalleryService) {
   }
 
@@ -18,9 +20,19 @@ export class GalleryComponent {
     //localStorage
     //  this.items = this.GalleryService.items;
 
-   this.GalleryService.getAllFromServer().subscribe(items => {
-    console.log(items);
-    this.items = items;
+    this.GalleryService.getAllFromServer().subscribe(items => {
+      console.log(items);
+      this.items = items;
     });
+  }
+
+
+  showAll(){
+    this.GalleryService.getAllFromServer().subscribe(items => {
+      console.log(items);
+      this.items = items;
+    });
+
+
   }
 }

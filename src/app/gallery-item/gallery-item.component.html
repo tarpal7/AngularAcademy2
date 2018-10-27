@@ -1,8 +1,7 @@
 
 <figure  class="wrapper">
-  <img src={{item.url}} (click)="showItem(item)" />
+  <img src={{item.url}} [routerLink]="['/gallery',item.id]"/>
   <figcaption>
   <a [routerLink]="['/gallery',item.id]">{{item.title}}</a></figcaption>
-  <!--<button id={{item.id}} (click)="change(item.id)">x</button>-->
-  <button id={{item.id}} (click)="deleteItem(item)">deletex</button>
+  <button id={{item.id}} (click)="deleteItem(item)">delete</button>
 </figure>

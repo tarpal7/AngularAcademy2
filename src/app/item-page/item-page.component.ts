@@ -30,18 +30,11 @@ export class ItemPageComponent implements OnInit {
     });
 
 
-    this.http.getAllFromServer().subscribe(items => {
-      this.items = items;
-      console.log(this.id);
-      this.linkimage = this.items [0].url;
-      console.log(this.linkimage);
-
-      this.items.forEach((item, index) => {
-        if (item.id == this.id) {
-          this.linkimage = item.url;
-          this.title = item.title;
-        }
-      });
+    this.http.getFromServerItemId(this.id).subscribe(item => {
+      console.log(item);
+      this.linkimage = item.url;
+      this.title = item.title;
+      this.id = item.id;
     });
   }
 }

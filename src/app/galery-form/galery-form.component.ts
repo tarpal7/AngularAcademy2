@@ -20,8 +20,7 @@ export class GaleryFormComponent {
   @Output() messageEvent = new EventEmitter<object>();
 
   sendMessage() {
-   // console.log(this.myValue);
-   // console.log(this.valueTitle);
+
     this.curid = (new Date()).getTime();
     this.objadd = {
       id: this.curid,
