@@ -3,5 +3,28 @@
   <img src={{item.url}} [routerLink]="['/gallery',item.id]"/>
   <figcaption>
   <a [routerLink]="['/gallery',item.id]">{{item.title}}</a></figcaption>
-  <button id={{item.id}} (click)="deleteItem(item)">delete</button>
+  <button id={{item.id}} (click)="deleteItem(item)"
+          mat-mini-fab
+          matTooltip="Info about the action"
+          aria-label="Button that displays a tooltip when focused or hovered over"
+
+  >x
+
+  </button>
+
+
 </figure>
+git
+<div matTooltip="You cannot delete that">
+  <button mat-raised-button [disabled]="true">
+    <mat-icon>delete</mat-icon>
+    <mat-tooltip-component>bbbbbb</mat-tooltip-component>
+
+  </button>
+</div>
+
+<button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>

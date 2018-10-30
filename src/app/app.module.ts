@@ -15,7 +15,9 @@ import { ItemPageComponent } from './item-page/item-page.component';
 import {AuthService} from "./auth.service";
 import {AuthGuard} from "./auth-guard.service";
 import { HomePageComponent } from './home-page/home-page.component';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule, MatIconModule} from "@angular/material";
 
 
 
@@ -35,7 +37,13 @@ import { HomePageComponent } from './home-page/home-page.component';
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+MatIconModule
+
   ],
   providers: [GalleryService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

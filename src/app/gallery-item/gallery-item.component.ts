@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {GalleryService} from '../gallery.service';
 import {GalleryComponent} from "../gallery/gallery.component";
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-gallery-item',
