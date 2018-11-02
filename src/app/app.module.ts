@@ -17,8 +17,11 @@ import {AuthGuard} from "./auth-guard.service";
 import { HomePageComponent } from './home-page/home-page.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatIconModule} from "@angular/material";
-
+import {MatButtonModule, MatDialogModule, MatIconModule} from "@angular/material";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overview.component'
+import {CourseDialogComponent} from './course-dialog/course-dialog.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -30,7 +33,11 @@ import {MatButtonModule, MatIconModule} from "@angular/material";
     GaleryFormComponent,
     FormPageComponent,
     ItemPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    SnackBarOverviewComponent,
+    CourseDialogComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -42,10 +49,17 @@ import {MatButtonModule, MatIconModule} from "@angular/material";
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatButtonModule,
-MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    FlexLayoutModule
 
   ],
-  providers: [GalleryService, AuthService, AuthGuard],
+  entryComponents: [
+    CourseDialogComponent
+  ],
+exports: [CourseDialogComponent],
+  providers: [GalleryService, AuthService, AuthGuard, SnackBarOverviewComponent, CourseDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

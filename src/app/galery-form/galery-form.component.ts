@@ -1,5 +1,6 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 import {GalleryService} from '../gallery.service';
+import {SnackBarOverviewComponent} from "../snack-bar-overview/snack-bar-overview.component";
 
 @Component({
   selector: 'app-galery-form',
@@ -14,7 +15,7 @@ export class GaleryFormComponent {
   isRequired = true;
   private curid;
 
-  constructor(private GalleryService: GalleryService) {
+  constructor(private GalleryService: GalleryService, public SnackBar: SnackBarOverviewComponent) {
   }
 
   @Output() messageEvent = new EventEmitter<object>();
@@ -40,10 +41,14 @@ export class GaleryFormComponent {
     };
 
     this.GalleryService.addItemToServer(this.objadd).subscribe((json) => {
-      console.log(json);
+      console.log(json),
+      this.SnackBar.openSnackBar("has been added picture", this.objadd.title );
     });
 
 
   }
 
 }
+
+
+
