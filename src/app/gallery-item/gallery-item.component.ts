@@ -1,9 +1,9 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {GalleryService} from '../gallery.service';
-import {GalleryComponent} from "../gallery/gallery.component";
+import {GalleryComponent} from '../gallery/gallery.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatDialog, MatDialogConfig} from "@angular/material";
-import {CourseDialogComponent} from "../course-dialog/course-dialog.component";
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {CourseDialogComponent} from '../course-dialog/course-dialog.component';
 
 export interface DialogData {
   animal: string;
@@ -23,21 +23,21 @@ export class GalleryItemComponent {
 
   @Input() item: object;
 
-  @Output() onChanged = new EventEmitter<number>();
+  @Output() nChanged = new EventEmitter<number>();
 
-  constructor(private GalleryService: GalleryService, private GalleryComponent: GalleryComponent, private dialog: MatDialog) {
+  constructor(private GalleryServ: GalleryService, private GalleryCompon: GalleryComponent, private dialog: MatDialog) {
   }
 
   change(id: number) {
-    this.GalleryService.onChanged(id);
+    this.GalleryServ.nChanged(id);
   }
 
   deleteItem(obj) {
     console.log(obj.id);
-    this.GalleryService.deleteFromServer(obj.id).subscribe(id => console.log('delete item',
-      this.GalleryComponent.showAll(),
-      console.log(this.GalleryService.getAllFromServer()),
-      this.GalleryService.items = this.GalleryService.items.filter(c => c.id !== obj.id)
+    this.GalleryServ.deleteFromServer(obj.id).subscribe(id => console.log('delete item',
+      this.GalleryCompon.showAll(),
+      console.log(this.GalleryServ.getAllFromServer()),
+      this.GalleryServ.items = this.GalleryServ.items.filter(c => c.id !== obj.id)
     //  this.change(obj.id)
     ));
   }
@@ -46,7 +46,7 @@ export class GalleryItemComponent {
   showItem(obj) {
 
     console.log(obj);
-    this.GalleryService.getFromServerItemId(obj);
+    this.GalleryServ.getFromServerItemId(obj);
 
   }
 
@@ -58,7 +58,6 @@ export class GalleryItemComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      //this.url = result;
     });
   }
 

@@ -9,19 +9,19 @@ import {GalleryService} from './gallery.service';
 import {HttpClientModule} from '@angular/common/http';
 
 import { FormPageComponent } from './form-page/form-page.component';
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 import {HttpModule} from '@angular/http';
 import { ItemPageComponent } from './item-page/item-page.component';
-import {AuthService} from "./auth.service";
-import {AuthGuard} from "./auth-guard.service";
+import {AuthService} from './auth.service';
+import {AuthGuard} from './auth-guard.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatDialogModule, MatIconModule} from "@angular/material";
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overview.component'
+import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overview.component';
 import {CourseDialogComponent} from './course-dialog/course-dialog.component';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 
@@ -43,7 +43,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule,
     HttpClientModule,
     MatTooltipModule,
     BrowserAnimationsModule,

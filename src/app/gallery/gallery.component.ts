@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, AfterViewInit} from '@angular/core';
 import {GalleryService} from '../gallery.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -9,26 +9,26 @@ import {HttpClient} from '@angular/common/http';
 })
 
 
-export class GalleryComponent {
+export class GalleryComponent implements OnInit {
   items = [];
 
-  constructor(private http: HttpClient, private GalleryService: GalleryService) {
+  constructor(private http: HttpClient, public GalleryServ: GalleryService) {
   }
 
   ngOnInit() {
 
-    //localStorage
+    // localStorage
     //  this.items = this.GalleryService.items;
 
-    this.GalleryService.getAllFromServer().subscribe(items => {
+    this.GalleryServ.getAllFromServer().subscribe(items => {
       console.log(items);
       this.items = items;
     });
   }
 
 
-  showAll(){
-    this.GalleryService.getAllFromServer().subscribe(items => {
+  showAll() {
+    this.GalleryServ.getAllFromServer().subscribe(items => {
       console.log(items);
       this.items = items;
     });

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
-import {GalleryService} from "../gallery.service";
-import {HttpClient} from "@angular/common/http";
+import {ActivatedRoute, Params} from '@angular/router';
+import {GalleryService} from '../gallery.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-item-page',
